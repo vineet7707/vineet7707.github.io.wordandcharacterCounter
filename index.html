@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Words and Character Counter</title>
+    <style>
+        #navbar {
+            background-color: blue;
+            width: 622px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+
+
+        }
+
+        #container {
+            margin-top: 20px;
+        }
+
+        #area {
+            background-color: blue;
+            color: wheat;
+            width: 622px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+      
+
+        body {
+            margin-top: 20px;
+            display: flex;
+            width: 100vh;
+            margin: 37px auto;
+            flex-direction: column;
+            align-items: center;
+
+        }
+      
+
+        #textarea {
+            height: 300px;
+            width: 617px;
+            background-color: blanchedalmond;
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: rgb(214, 103, 207);
+            }
+            #textarea {
+            height: 100px;
+            width: 322px;
+            background-color: blanchedalmond;
+            margin-top: 2px;
+        }
+        #navbar {
+            background-color: blue;
+            width: 322px;
+            
+            font-size: 8px;
+        }
+        #area{
+            width: 322px;
+            height: 48px;
+        }
+      
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <h1>Word and character Counter</h1>
+    </div>
+    <div id="container">
+        <textarea id="textarea" cols="30" rows="10"></textarea>
+    </div>
+    <div id="area">
+        <p > <span id="word">0</span> Word and <span id="char">0</span> Character</p>
+    </div>
+
+
+    <script>
+        let textarea = document.getElementById('textarea');
+
+        textarea.addEventListener('input', function () {
+            let text = this.value;
+            let char = text.length;
+            document.getElementById('char').innerHTML = char;
+
+            text = text.trim();
+            let words = text.split(" ");
+            let clearList = words.filter(function (elm) {
+                return elm != "";
+            })
+            console.log(words)
+            document.getElementById('word').innerHTML = clearList.length;
+        })
+    </script>
+</body>
+
+</html>
